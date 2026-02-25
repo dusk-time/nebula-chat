@@ -26,6 +26,10 @@ libp2p = { version = "0.54", features = ["tcp", "noise", "yamux", "mdns", "tokio
 futures = "0.3"
 async-trait = "0.1"
 
+[lib]
+name = "nebula_chat"
+crate-type = ["cdylib"]
+
 [features]
 default = ["custom-protocol"]
 custom-protocol = ["tauri/custom-protocol"]
