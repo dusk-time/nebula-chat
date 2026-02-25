@@ -1,0 +1,38 @@
+[package]
+name = "nebula-chat"
+version = "0.1.0"
+description = "A P2P encrypted chat application"
+authors = ["Nebula Chat Team"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sodiumoxide = "0.2"
+rusqlite = { version = "0.31", features = ["bundled"] }
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+tokio = { version = "1", features = ["full"] }
+base64 = "0.21"
+bs58 = "0.5"
+
+# P2P dependencies
+libp2p = { version = "0.54", features = ["tcp", "noise", "yamux", "mdns", "tokio", "request-response", "cbor", "dns"] }
+futures = "0.3"
+async-trait = "0.1"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

@@ -1,0 +1,11 @@
+# Icon Placeholder
+
+Icons should be added here:
+- 32x32.png
+- 128x128.png
+- 128x128@2x.png
+- icon.icns
+- icon.ico
+
+You can generate icons from a SVG using:
+https://tauri.app/v1/guides/features/icons

@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+src-tauri/target/
+src-tauri/gen/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Tauri
+src-tauri/**/*.pdb
+
+# Android
+*.iml
+.gradle/
+local.properties
+
+# Database (可选，如果想保留消息)
+# messages.db

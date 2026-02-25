@@ -1,0 +1,13 @@
+{
+  "identifier": "main-capability",
+  "description": "Main capability for the Nebula Chat app",
+  "local": true,
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:event:allow-listen",
+    "core:event:allow-emit",
+    "core:window:default",
+    "shell:allow-execute"
+  ]
+}
