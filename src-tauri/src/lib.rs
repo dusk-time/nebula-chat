@@ -1,6 +1,10 @@
 // Nebula Chat - Android Library Entry Point
 // This file is required for Tauri Android build
 
+// Mobile entry point for Tauri v2
+#[cfg_attr(mobile, tauri::mobile_entry_point)]
+pub fn mobile_entry_point() {}
+
 // Re-export main module
 pub mod commands;
 pub mod config;
