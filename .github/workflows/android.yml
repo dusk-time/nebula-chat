@@ -59,10 +59,8 @@ jobs:
         with:
           name: nebula-chat-android-apk
           path: |
-            src-tauri/target/aarch64-linux-android/release/*.apk
-            src-tauri/target/armv7-linux-androideabi/release/*.apk
-            src-tauri/target/i686-linux-android/release/*.apk
-            src-tauri/target/x86_64-linux-android/release/*.apk
+            src-tauri/gen/android/app/build/outputs/apk/universal/release/*.apk
+            src-tauri/gen/android/app/build/outputs/apk/**/release/*.apk
           retention-days: 30
       
       - name: Create release notes
@@ -79,8 +77,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            src-tauri/target/aarch64-linux-android/release/*.apk
-            src-tauri/target/armv7-linux-androideabi/release/*.apk
+            src-tauri/gen/android/app/build/outputs/apk/universal/release/*.apk
+            src-tauri/gen/android/app/build/outputs/apk/**/release/*.apk
           body_path: release-notes.txt
           draft: false
           prerelease: false
