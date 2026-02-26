@@ -30,6 +30,20 @@ function App() {
     const unlistenFns: UnlistenFn[] = [];
     
     const initApp = async () => {
+      // 🚨 启动诊断：检查关键资源
+      log('🔍 [诊断] 应用启动，检查环境...');
+      log(`📦 [诊断] User Agent: ${navigator.userAgent}`);
+      log(`🎨 [诊断] 背景色：${getComputedStyle(document.body).backgroundColor}`);
+      log(`📐 [诊断] 窗口尺寸：${window.innerWidth}x${window.innerHeight}`);
+      
+      // 检查 React 是否正常渲染
+      const root = document.getElementById('root');
+      log(`📌 [诊断] Root 元素：${root ? '✅ 存在' : '❌ 不存在'}`);
+      if (root) {
+        log(`📏 [诊断] Root 尺寸：${root.clientWidth}x${root.clientHeight}`);
+        log(`🎨 [诊断] Root 背景：${getComputedStyle(root).backgroundColor}`);
+      }
+      
       log('🔍 [前端] 应用启动，检查保存的身份...');
       
       const savedIdentity = localStorage.getItem('nebula_identity');
@@ -337,6 +351,7 @@ function App() {
         <div className="text-center">
           <div className="text-6xl mb-4 animate-pulse">🌌</div>
           <div className="text-white text-xl font-medium">启动中...</div>
+          <div className="text-gray-400 text-sm mt-2">{debugInfo}</div>
         </div>
       </div>
     );
