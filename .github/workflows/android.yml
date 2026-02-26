@@ -49,8 +49,8 @@ jobs:
         run: npx tauri android init
         continue-on-error: true
       
-      - name: Build APK
-        run: npx tauri android build --apk
+      - name: Build Debug APK (signed automatically)
+        run: npx tauri android build --debug
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
       
@@ -59,8 +59,8 @@ jobs:
         with:
           name: nebula-chat-android-apk
           path: |
-            src-tauri/gen/android/app/build/outputs/apk/universal/release/*.apk
-            src-tauri/gen/android/app/build/outputs/apk/**/release/*.apk
+            src-tauri/gen/android/app/build/outputs/apk/universal/debug/*.apk
+            src-tauri/gen/android/app/build/outputs/apk/**/debug/*.apk
           retention-days: 30
       
       - name: Create release notes
